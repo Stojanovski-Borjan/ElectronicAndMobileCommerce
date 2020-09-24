@@ -1,24 +1,8 @@
 # Electronic and Mobile Commerce 2019-2020
-Creator: **Borjan Stojanovski** 173253  
-## Back-End (Java Spring Boot) and Front-End (React) application for the course *"Electronic and Mobile Commerce"* at the *Faculty of Computer Science and Engineering - Skopje*
-
-### Description
-
- - This application is for scooters and eBike rental. The clients can search for locations on a map where they can eventually pick up the desired vehicle.
-	There is an interactive form ready that lets the client reserve a desired amount of vehicles on a choosen date. They can also choose to reserve different vehicle models and amounts.
-	They are at all times notified off the price they would need to pay for the rentl service. There is a well set up validation with instructions that the user needs to follow.
-    After the user is ready to make his reservation he submits the form.
-
-	The application is responsible for presenting only the available models and amounts in the choosen time interval so there will be no disorganisation and overlapping and the client will always get the desired vehicles.
-	In the moment there is no UI for the employees, but the backend is fully capable of letting employees add new vehicles and vehicle models, as well as locations and managing all the existing inventory.
-	They can mark a picked up vehicle so every employee on every location could be aware that exactly that vehicle is on the road. And later on when the client returns the vehicle in any location the employees could
-	mark the vehicle returned. Then the vehicle will be available on that location for new reservations.
-	
-	The react application design is developed with MaterialUI and is fully responsive. This was a great thing to learn aside from only using Bootstrap.
 
 ### Instructions
 
- - In order to run the production build you need only Docker.
+ In order to run the production build you need only Docker.
  
  After making sure you have you docker machine up and running the next step is to run the [init.sh](https://github.com/Stojanovski-Borjan/ElectronicAndMobileCommerce/blob/master/init.sh). It is located in the root directory of the repository.
  
@@ -73,3 +57,7 @@ Creator: **Borjan Stojanovski** 173253
 			* Yup - for form validation. Great tool, did most of the work, but I had the need to implement my own validation methods.
 			* moment - for easily manage Dates and make date comparisons for the necessary logic. Great for going through date formats also.
 			* MaterialUI - they basicly have every component you need for the UI and it's fully responsive with the use of Grid or similar componentes.
+			
+
+Creator: **Borjan Stojanovski** 173253  
+## Back-End (Java Spring Boot) and Front-End (React) application for the course *"Electronic and Mobile Commerce"* at the *Faculty of Computer Science and Engineering - Skopje*
