@@ -1,4 +1,5 @@
 # Electronic and Mobile Commerce 2019-2020
+## Back-End (Java Spring Boot) and Front-End (React) application for the course *"Electronic and Mobile Commerce"* at the *Faculty of Computer Science and Engineering - Skopje*
 
 ### Instructions
 
@@ -60,4 +61,3 @@
 			
 
 Creator: **Borjan Stojanovski** 173253  
-## Back-End (Java Spring Boot) and Front-End (React) application for the course *"Electronic and Mobile Commerce"* at the *Faculty of Computer Science and Engineering - Skopje*
