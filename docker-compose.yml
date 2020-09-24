@@ -1,11 +1,11 @@
 version: "3.4"
 services:
   #  Create a service named db.
-  rent-spring-db:
+  rent-spring-db-emt:
     #   Use the Docker Image postgres. This will pull the newest release.
     image: "postgres"
     #   Give the container the name my_postgres. You can changes to something else.
-    container_name: "rent_postgres"
+    container_name: "rent_postgres_emt"
     #   Setup the username, password, and database name. You can changes these values.
     environment:
       - POSTGRES_USER=rent
@@ -18,27 +18,27 @@ services:
     volumes:
       - rental-postgres-data:/var/lib/postgresql/data
   #   Service for the spring-boot-app
-  spring-app:
+  spring-app-emt:
     image: springboot-rent-app:latest
-    container_name: "rent_spring"
+    container_name: "rent_spring-emt"
     links:
-      - rent-spring-db:database
+      - rent-spring-db-emt:database
     build:
       context: ./spring/
       dockerfile: Dockerfile
     environment:
-       SPRING_DATASOURCE_URL: jdbc:postgresql://rent-spring-db/rental
+       SPRING_DATASOURCE_URL: jdbc:postgresql://rent-spring-db-emt/rental
        client.url: ${DOCKER_HOST_IP}
     expose:
       - "8080"
     ports:
       - "8080:8080"
     depends_on:
-      - rent-spring-db
+      - rent-spring-db-emt
     restart: always
-  react-app:
+  react-app-emt:
     image: react-rent-app:latest
-    container_name: "rent_react"
+    container_name: "rent_react_emt"
     build:
       context: ./rent-scoot/
       dockerfile: Dockerfile
@@ -47,6 +47,6 @@ services:
     ports:
       - "3000:80"
     depends_on:
-      - spring-app
+      - spring-app-emt
 volumes:
  rental-postgres-data:  
