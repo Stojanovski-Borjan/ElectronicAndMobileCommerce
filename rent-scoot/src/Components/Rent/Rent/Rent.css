@@ -1,0 +1,29 @@
+.MuiGrid-item
+{
+ 	width: 100%;
+	margin: auto !important;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.reservation-form
+{
+	margin: 1em;
+	background-color: #d3e0e6 !important;
+}
+
+.legend
+{
+	font-size: 40px;
+	color: #525252;
+	font-weight: 200;
+	width: 60%;
+	margin: auto;
+	border-bottom: 1.5px solid #52a4ba; 
+	letter-spacing: 3px;
+	margin-bottom: 1em; 
+}

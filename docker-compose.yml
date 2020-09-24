@@ -1,0 +1,52 @@
+version: "3.4"
+services:
+  #  Create a service named db.
+  rent-spring-db:
+    #   Use the Docker Image postgres. This will pull the newest release.
+    image: "postgres"
+    #   Give the container the name my_postgres. You can changes to something else.
+    container_name: "rent_postgres"
+    #   Setup the username, password, and database name. You can changes these values.
+    environment:
+      - POSTGRES_USER=rent
+      - POSTGRES_PASSWORD=Rental123!
+      - POSTGRES_DB=rental
+    #   Maps port 54320 (localhost) to port 5432 on the container ONLY ON LINUX. So probably ok when dockerizing all services. You can change the ports to fix your needs for development.
+    ports:
+      - "54320:5432"
+    #   Set a volume some that database is not lost after shutting down the container.
+    volumes:
+      - rental-postgres-data:/var/lib/postgresql/data
+  #   Service for the spring-boot-app
+  spring-app:
+    image: springboot-rent-app:latest
+    container_name: "rent_spring"
+    links:
+      - rent-spring-db:database
+    build:
+      context: ./spring/
+      dockerfile: Dockerfile
+    environment:
+       SPRING_DATASOURCE_URL: jdbc:postgresql://rent-spring-db/rental
+       client.url: ${DOCKER_HOST_IP}
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    depends_on:
+      - rent-spring-db
+    restart: always
+  react-app:
+    image: react-rent-app:latest
+    container_name: "rent_react"
+    build:
+      context: ./rent-scoot/
+      dockerfile: Dockerfile
+      args:
+        REACT_APP_BACKEND_IP: ${DOCKER_HOST_IP}
+    ports:
+      - "3000:80"
+    depends_on:
+      - spring-app
+volumes:
+ rental-postgres-data:  
